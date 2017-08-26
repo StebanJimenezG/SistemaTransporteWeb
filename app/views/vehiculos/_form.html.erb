@@ -1,0 +1,32 @@
+<%= form_with(model: vehiculo, local: true) do |form| %>
+  <% if vehiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehiculo.errors.count, "error") %> prohibited this vehiculo from being saved:</h2>
+
+      <ul>
+      <% vehiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Placa del carro" %>
+    <%= form.text_field :modelo, id: :vehiculo_modelo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recorrido_id %>
+    <%= form.collection_select :recorrido_id, Recorrido.order(:nombre), :id, :nombre, include_blank: true%></td>
+  </div>
+
+  <div class="field">
+    <%= form.label :pasajero_id %>
+    <%= form.collection_select :pasajero_id, Pasajero.order(:nombre), :id, :nombre, include_blank: true%></td>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar recorrido" %>
+  </div>
+<% end %>

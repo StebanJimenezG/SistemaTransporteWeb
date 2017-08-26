@@ -1,0 +1,31 @@
+<body>
+<br>
+<br>
+<br>
+<br>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @vehiculo.modelo %>
+</p>
+
+<p>
+  <strong>Recorrido:</strong>
+  <%= @vehiculo.recorrido.nombre %>
+</p>
+
+<p>
+  <strong>Pasajero:</strong>
+  <%= @vehiculo.pasajero.nombre %>
+</p>
+
+<div  class="btn-group" role="group" aria-label="...">
+  <%= link_to "Editar Vehiculo".html_safe,
+              edit_vehiculo_path(@vehiculo) , class: 'btn btn-success btn-lg active'%>
+</div>
+<div  class="btn-group" role="group" aria-label="...">
+  <%= link_to " Atras".html_safe,
+              vehiculos_path , class: 'btn btn-success btn-lg active'%>
+</div>
+</body>

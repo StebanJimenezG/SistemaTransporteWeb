@@ -1,0 +1,22 @@
+<%= form_with(model: pasajero, local: true) do |form| %>
+  <% if pasajero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pasajero.errors.count, "error") %> prohibited this pasajero from being saved:</h2>
+
+      <ul>
+      <% pasajero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :pasajero_nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

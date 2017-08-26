@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="jumbotron">
+    <p align="right">
+      <%= link_to "<span class='glyphicon glyphicon-road'></span> Nuevo Recorrido".html_safe,
+                  new_recorrido_path, class: 'btn btn-success btn-lg active'%>
+    </p>
+    <h2 align="center" class="titulo"><strong>Recorridos</strong></h2>
+    <hr>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Recorrido</th>
+
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @recorridos.each do |recorrido| %>
+            <tr>
+              <td><%= recorrido.nombre %></td>
+
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-eye-open'></span>".html_safe,
+                            recorrido, class: 'btn btn-default btn-sm active'%>
+              </div>
+              </td>
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe,
+                            edit_recorrido_path(recorrido), class: 'btn btn-warning btn-sm active'%>
+              </div>
+
+              </td>
+
+              <td> <div class="btn-group" role="group" aria-label="...">
+                <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe,
+                            recorrido, method: :delete, data: { confirm: 'Eliminar?' }, class:"btn btn-success btn-sm active" %>
+              </div>
+
+              </td>
+
+            </tr>
+        <%end%>
+
+        </tbody>
+
+
+
+        <br>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+</table>
+
+</body>
